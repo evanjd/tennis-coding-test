@@ -6,7 +6,8 @@
   "license": "UNLICENSED",
   "scripts": {
     "lint": "eslint src/ --ext .js,.jsx,.ts,.tsx",
-    "test": "jest"
+    "test": "jest",
+    "play-match": "ts-node -r tsconfig-paths/register src/play-match.ts"
   },
   "devDependencies": {
     "@types/jest": "^27.4.1",
