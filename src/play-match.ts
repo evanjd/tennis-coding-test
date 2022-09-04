@@ -11,6 +11,8 @@ const match = new Match(nadal, federer);
 
   Score will be printed at random points to compare with real gameplay.
 
+  Note: tie-breaker integration test reuses this match as well.
+
   https://www.youtube.com/watch?v=wZnCcqm_g-E (0:00 to 53:09)
  */
 
