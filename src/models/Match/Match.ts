@@ -1,5 +1,6 @@
 import type { RuleManager } from "interfaces";
-import { Set, Player, StandardGame, TieBreakerGame } from "models";
+import { Set, Player } from "models";
+import { GameFactory } from "utils";
 
 export default class Match {
   private players: [Player, Player];
@@ -12,7 +13,7 @@ export default class Match {
 
     this.players = [player1, player2];
     this.currentSet = new Set();
-    this.currentGame = new StandardGame();
+    this.currentGame = GameFactory.getGame(player1.gamesWon, player2.gamesWon);
   }
 
   private getOpponentForPlayer(player: Player) {
@@ -33,14 +34,9 @@ export default class Match {
         opponent.lostSet();
       }
 
-      if (player.gamesWon === opponent.gamesWon && player.gamesWon === 6) {
-        this.currentGame = new TieBreakerGame();
-      } else {
-        this.currentGame = new StandardGame();
-      }
+      // Game is complete, set up the next one.
+      this.currentGame = GameFactory.getGame(player.gamesWon, opponent.gamesWon);
     }
-
-    // console.log(this.getScore());
   }
 
   getScore() {
