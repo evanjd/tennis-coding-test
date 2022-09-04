@@ -10,6 +10,15 @@ After cloning the repo, run:
 yarn install
 ```
 
+#### Run sample match
+
+This will execute the sample match found at `src/play-match.ts`.
+If left unchanged, this will play the 1st set of Federer vs Nadal's 4th game at Wimbledon 2019.
+
+```sh
+yarn play-match
+```
+
 #### Run tests
 
 ```sh
